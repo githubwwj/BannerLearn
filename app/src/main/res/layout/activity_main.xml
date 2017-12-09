@@ -8,13 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="240dp">
 
+        <com.wwj.bannerlearn.BannerViewPager
+            android:layout_width="match_parent"
+            android:id="@+id/bannerViewPager"
+            android:layout_height="240dp" />
+
         <LinearLayout
             android:id="@+id/indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:layout_above="@+id/spinner"
-            android:orientation="horizontal"/>
+            android:layout_margin="10dp"
+            android:orientation="horizontal" />
 
         <Spinner
             android:id="@+id/spinner"
