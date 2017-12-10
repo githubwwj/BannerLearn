@@ -35,26 +35,22 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initAttribute();
+        initView();
+        createImageView();
+        createIndicator();
+        setAdapter();
+
+    }
+
+    private void initAttribute() {
+        indicatorSize = (int) getResources().getDimension(R.dimen.indicatorSize);
+    }
+
+    private void initView() {
         indicator = findViewById(R.id.indicator);
         bannerViewPager = findViewById(R.id.bannerViewPager);
         spinner = findViewById(R.id.spinner);
-
-        indicatorSize = (int) getResources().getDimension(R.dimen.indicatorSize);
-
-
-        for (int i = 0; i < count; i++) {
-            ImageView imageView = new ImageView(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(indicatorSize, indicatorSize);
-            layoutParams.leftMargin = indicatorSize;
-            layoutParams.rightMargin = indicatorSize;
-            imageView.setLayoutParams(layoutParams);
-            if (i == 0) {
-                imageView.setImageResource(R.drawable.indicator_select);
-            } else {
-                imageView.setImageResource(R.drawable.indicator_unselect);
-            }
-            indicator.addView(imageView);
-        }
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -73,8 +69,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
             }
         });
+    }
 
-
+    private void createImageView() {
         for (int i = 0; i <= count + 1; i++) {
             int url;
             if (i == 0) {
@@ -90,11 +87,28 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             imageView.setImageResource(images[url]);
             imageviews.add(imageView);
         }
+    }
 
+    private void createIndicator() {
+        for (int i = 0; i < count; i++) {
+            ImageView imageView = new ImageView(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(indicatorSize, indicatorSize);
+            layoutParams.leftMargin = indicatorSize;
+            layoutParams.rightMargin = indicatorSize;
+            imageView.setLayoutParams(layoutParams);
+            if (i == 0) {
+                imageView.setImageResource(R.drawable.indicator_select);
+            } else {
+                imageView.setImageResource(R.drawable.indicator_unselect);
+            }
+            indicator.addView(imageView);
+        }
+    }
+
+    private void setAdapter() {
         bannerViewPager.setAdapter(new BannerAdpater());
         bannerViewPager.setCurrentItem(1);
         bannerViewPager.addOnPageChangeListener(this);
-
         mHandler.sendEmptyMessageDelayed(NEXT_PAGE, 2000);
     }
 
