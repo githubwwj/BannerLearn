@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="indicatorSize">9dp</dimen>
 
-    <array name="indicatorPosition" >
-        <item>Left</item>
-        <item>Center</item>
-        <item>Right</item>
-    </array>
 
 </resources>
