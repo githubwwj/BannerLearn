@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity  {
         List<Integer> list=new ArrayList<>();
         list.add(R.mipmap.banner_a);
         list.add(R.mipmap.banner_b);
-        list.add(R.mipmap.banner_c);
         banner.setData(list);
         banner.start();
     }

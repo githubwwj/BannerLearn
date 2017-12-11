@@ -85,7 +85,6 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
         isAutoPlay = typedArray.getBoolean(R.styleable.banner_isAutoPlay, isAutoPlay);
         scrollable = typedArray.getBoolean(R.styleable.banner_scrollable, scrollable);
 
-        Log.i("TAG", "===indicator_height=" + indicator_height + "==indicator_width=" + indicator_width + "===indicator_unselect=" + indicator_unselect);
         typedArray.recycle();
 
         initView();
