@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -34,6 +33,7 @@ import java.util.List;
 
 public class Banner extends FrameLayout implements ViewPager.OnPageChangeListener {
 
+    private static final long INTERVAL_TIME = 5000;
     private final Context mContext;
     private int indicator_height;
     private int indicator_width;
@@ -146,7 +146,6 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
             }
             ImageView imageView = new ImageView(mContext);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setAdjustViewBounds(true);
             Glide.with(mContext).load(url).into(imageView);
             imageviews.add(imageView);
         }
@@ -193,7 +192,7 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
                 }
                 currentItem = currentItem % (count + 1) + 1;
                 bannerViewPager.setCurrentItem(currentItem);
-                mHandler.sendEmptyMessageDelayed(NEXT_PAGE, 2000);
+                mHandler.sendEmptyMessageDelayed(NEXT_PAGE, INTERVAL_TIME);
             }
         }
     };
@@ -206,7 +205,7 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
     @Override
     public void onPageSelected(int position) {
         currentItem = position;
-
+        Log.i("tag","=======positon="+position);
         ImageView imageView = (ImageView) indicator.getChildAt((lastItem - 1 + count) % count);
         imageView.setImageResource(R.drawable.indicator_unselect);
         imageView = (ImageView) indicator.getChildAt((currentItem - 1 + count) % count);
@@ -221,14 +220,14 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
             case ViewPager.SCROLL_STATE_IDLE:  //页面滚动状态处于空闲
                 if (currentItem == 0) {
                     bannerViewPager.setCurrentItem(count, false);
-                } else if (currentItem == 4) {
+                } else if (currentItem == count+1) {
                     bannerViewPager.setCurrentItem(1, false);
                 }
                 break;
             case ViewPager.SCROLL_STATE_DRAGGING:  //页面滚动状态拖动中
                 if (currentItem == 0) {
                     bannerViewPager.setCurrentItem(count, false);
-                } else if (currentItem == 4) {
+                } else if (currentItem == count+1) {
                     bannerViewPager.setCurrentItem(1, false);
                 }
                 break;
@@ -278,7 +277,7 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
     public void startPlay() {
         if (isAutoPlay) {
             mHandler.removeCallbacksAndMessages(null);
-            mHandler.sendEmptyMessageDelayed(NEXT_PAGE, 2000);
+            mHandler.sendEmptyMessageDelayed(NEXT_PAGE, INTERVAL_TIME);
         }
     }
 
