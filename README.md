@@ -4,6 +4,10 @@
 |#|标题|视频地址|
 |---|----|-----|
 |1|01-Banner广告轮播图的介绍|http://www.iqiyi.com/w_19ruukqegl.html|
+|2|02-指示器的实现并导入项目到GitHub|http://www.iqiyi.com/w_19ruulmt0t.html|
+|3|03-ViewPager无线轮播实现原理和代码编写|http://www.iqiyi.com/w_19ruv7ykv1.html|
+|4|04-Banner封装成Android Libray库|http://www.iqiyi.com/w_19ruvwqut9.html|
+
 
 
 
@@ -25,3 +29,4 @@ allprojects {
 dependencies {
 	        compile 'com.github.githubwwj:BannerLearn:0.1'
 }
+
