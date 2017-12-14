@@ -27,6 +27,6 @@ allprojects {
 第二步  引用Android无限轮播图依赖库
 =================================
 dependencies {
-	        compile 'com.github.githubwwj:BannerLearn:0.1'
+	        compile 'com.github.githubwwj:BannerLearn:0.2'
 }
 

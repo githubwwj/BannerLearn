@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -33,12 +34,12 @@ import java.util.List;
 
 public class Banner extends FrameLayout implements ViewPager.OnPageChangeListener {
 
-    private static final long INTERVAL_TIME = 5000;
     private final Context mContext;
     private int indicator_height;
     private int indicator_width;
     private int indicator_unselect, indicator_select;
     private int indicator_margin;
+    private final int INTERVAL_TIME=5000;
 
 
     private static final int NEXT_PAGE = 20;
@@ -146,6 +147,7 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
             }
             ImageView imageView = new ImageView(mContext);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setAdjustViewBounds(true);
             Glide.with(mContext).load(url).into(imageView);
             imageviews.add(imageView);
         }
@@ -205,7 +207,7 @@ public class Banner extends FrameLayout implements ViewPager.OnPageChangeListene
     @Override
     public void onPageSelected(int position) {
         currentItem = position;
-        Log.i("tag","=======positon="+position);
+
         ImageView imageView = (ImageView) indicator.getChildAt((lastItem - 1 + count) % count);
         imageView.setImageResource(R.drawable.indicator_unselect);
         imageView = (ImageView) indicator.getChildAt((currentItem - 1 + count) % count);
