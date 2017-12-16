@@ -7,7 +7,9 @@
 |2|02-指示器的实现并导入项目到GitHub|http://www.iqiyi.com/w_19ruulmt0t.html|
 |3|03-ViewPager无线轮播实现原理和代码编写|http://www.iqiyi.com/w_19ruv7ykv1.html|
 |4|04-Banner封装成Android Libray库|http://www.iqiyi.com/w_19ruvwqut9.html|
-|5|06-Android轮播图错误代码修复|http://www.iqiyi.com/w_19rus14sdt.html?list=19rrlal9ry|
+|5|05-Banner生成依赖Android库|http://www.iqiyi.com/w_19ruvoczxx.html|
+|6|06-Android轮播图错误代码修复|http://www.iqiyi.com/w_19rus14sdt.html|
+
 
 
 
