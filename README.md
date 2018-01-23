@@ -9,7 +9,7 @@
 |4|04-Banner封装成Android Libray库|http://www.iqiyi.com/w_19ruvwqut9.html|
 |5|05-Banner生成依赖Android库|http://www.iqiyi.com/w_19ruvoczxx.html|
 |6|06-Android轮播图错误代码修复|http://www.iqiyi.com/w_19rus14sdt.html|
-
+|7|07-Banner无限轮播优化|http://www.iqiyi.com/w_19rwf8xeo1.html#vfrm=16-1-1-1|
 
 
 
